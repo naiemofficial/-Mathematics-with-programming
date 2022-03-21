@@ -43,16 +43,16 @@ int main(){
     // Message
     string invalidOperation = "Error! Invalid operation";
     
-    // Combind subject
-    int combindSubjects = 0; string comb_conf;
-    cout << "\nIs there any combind subject(s) (Y=yes & N=no)    : ";
+    // Combined subject
+    int combinedSubjects = 0; string comb_conf;
+    cout << "\nIs there any combined subject(s) (Y=yes & N=no)    : ";
     cin >> comb_conf;
     if(operation(comb_conf) == false){
         cout << invalidOperation;
     }else{
         if(confirmation(comb_conf) == true){
-            cout << "How many combind subject(s): ";
-            cin >> combindSubjects;
+            cout << "How many combined subject(s): ";
+            cin >> combinedSubjects;
         }
 
         // Half marks subject
@@ -74,8 +74,8 @@ int main(){
             if(operation(opt_conf) == false){
                 cout << invalidOperation;
             }else{
-                if (combindSubjects > totalSub || halfSubjects > totalSub) {
-                    cout << "Error!!! Combind or Half-marksSubject(s) are can't be more than total subjects";
+                if (combinedSubjects > totalSub || halfSubjects > totalSub) {
+                    cout << "Error!!! Combined or Half-marksSubject(s) are can't be more than total subjects";
                 }else{
                     cout << "-------------------------\n" << endl;
                     int subjects[totalSub];
@@ -83,8 +83,8 @@ int main(){
 
                     int sub = 1;
                     for (int i = 0; i < totalSub; i++) {
-                        if(combindSubjects > 0 && combindSubjects > i){
-                            cout << (i+1) << " => Enter the obtained marks of combind subject-" << (sub++) << ": ";
+                        if(combinedSubjects > 0 && combinedSubjects > i){
+                            cout << (i+1) << " => Enter the obtained marks of combined subject-" << (sub++) << ": ";
                             cin >> subjects[i];
                         }else if (halfSubjects > 0 && halfSubjects >= totalSub-i){
                             if (halfSubjects == totalSub-i) 
@@ -104,7 +104,7 @@ int main(){
 
                     for (int i = 0; i < totalSub; i++) {
                         float marks = 0.00;
-                        if(combindSubjects > 0 && combindSubjects > i){
+                        if(combinedSubjects > 0 && combinedSubjects > i){
                             marks = subjects[i]/2;
                         }else if(halfSubjects > 0 && halfSubjects >= totalSub-i){
                             marks = subjects[i]*2;

@@ -35,14 +35,14 @@ totalSub = int(input("How many subjects are there (without major/optional): "))
 # Message
 invalidOperation = "Error! Invalid operation"
 
-#  Combind subject
-combindSubjects = 0
-comb_conf = input("\nIs there any combind subject(s) (Y=yes & N=no)    : ")
+#  Combined subject
+combinedSubjects = 0
+comb_conf = input("\nIs there any combined subject(s) (Y=yes & N=no)    : ")
 if operation(comb_conf) == False:
     print(invalidOperation)
 else:
     if confirmation(comb_conf) == True:
-        combindSubjects = int(input("How many combind subject(s): "))
+        combinedSubjects = int(input("How many combined subject(s): "))
 
     # Half marks subject
     halfSubjects = 0
@@ -59,8 +59,8 @@ else:
         if operation(opt_conf) == False:
             print(invalidOperation)
         else:
-            if combindSubjects > totalSub or halfSubjects > totalSub:
-                print("Error!!! Combind or Half-marks Subject(s) are can't be more than total subjects")
+            if combinedSubjects > totalSub or halfSubjects > totalSub:
+                print("Error!!! Combined or Half-marks Subject(s) are can't be more than total subjects")
             else:
                 print("-------------------------\n")
                 subjects = [None] * totalSub
@@ -69,9 +69,9 @@ else:
 
                 sub = 0
                 for i in range(0, len(subjects)):
-                    if combindSubjects > 0 and combindSubjects > i:
+                    if combinedSubjects > 0 and combinedSubjects > i:
                         sub += 1
-                        subjects[i] = int(input(str(i+1) + " => Enter the obtained marks of combind subject-" + str(sub) + ": "))
+                        subjects[i] = int(input(str(i+1) + " => Enter the obtained marks of combined subject-" + str(sub) + ": "))
                     elif halfSubjects > 0 and halfSubjects >= len(subjects)-i:
                         if (halfSubjects == len(subjects) - i):
                             sub = 0
@@ -87,7 +87,7 @@ else:
 
                 for i in range(0, len(subjects)):
                     marks = 0.00
-                    if combindSubjects > 0 and combindSubjects > i:
+                    if combinedSubjects > 0 and combinedSubjects > i:
                         marks = subjects[i]/2
                     elif halfSubjects > 0 and halfSubjects >= len(subjects)-i:
                         marks = subjects[i]*2

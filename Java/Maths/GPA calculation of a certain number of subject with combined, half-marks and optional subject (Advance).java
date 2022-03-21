@@ -43,16 +43,16 @@ class gpa_subWithOptional {
         // Message
         String invalidOperation = "Error! Invalid operation";
         
-        // Combind subject
-        int combindSubjects = 0;
-        System.out.print("\nIs there any combind subject(s) (Y=yes & N=no)    : ");
+        // Combined subject
+        int combinedSubjects = 0;
+        System.out.print("\nIs there any combined subject(s) (Y=yes & N=no)    : ");
         String comb_conf = input.nextLine();
         if(operation(comb_conf) == false){
             System.out.println(invalidOperation);
         }else{
             if(confirmation(comb_conf) == true){
-                System.out.print("How many combind subject(s): ");
-                combindSubjects = input.nextInt(); input.nextLine();
+                System.out.print("How many combined subject(s): ");
+                combinedSubjects = input.nextInt(); input.nextLine();
             }
 
             // Half marks subject
@@ -74,9 +74,9 @@ class gpa_subWithOptional {
                 if(operation(opt_conf) == false){
                     System.out.println(invalidOperation);
                 }else{
-                    if (combindSubjects > totalSub || halfSubjects > totalSub) {
+                    if (combinedSubjects > totalSub || halfSubjects > totalSub) {
                         System.out.println(
-                                "Error!!! Combind or Half-marksSubject(s) are can't be more than total subjects");
+                                "Error!!! Combined or Half-marksSubject(s) are can't be more than total subjects");
                     }else{
                         System.out.println("-------------------------\n");
                         int[] subjects = new int[totalSub];
@@ -85,8 +85,8 @@ class gpa_subWithOptional {
 
                         int sub = 1;
                         for (int i = 0; i < subjects.length; i++) {
-                            if(combindSubjects > 0 && combindSubjects > i){
-                                System.out.print((i+1) + " => Enter the obtained marks of combind subject-" + (sub++) + ": ");
+                            if(combinedSubjects > 0 && combinedSubjects > i){
+                                System.out.print((i+1) + " => Enter the obtained marks of combined subject-" + (sub++) + ": ");
                                 subjects[i] = input.nextInt();
                             }else if (halfSubjects > 0 && halfSubjects >= subjects.length-i){
                                 if (halfSubjects == subjects.length-i) 
@@ -106,7 +106,7 @@ class gpa_subWithOptional {
 
                         for (int i = 0; i < subjects.length; i++) {
                             float marks = 0.00f;
-                            if(combindSubjects > 0 && combindSubjects > i){
+                            if(combinedSubjects > 0 && combinedSubjects > i){
                                 marks = subjects[i]/2;
                             }else if(halfSubjects > 0 && halfSubjects >= subjects.length-i){
                                 marks = subjects[i]*2;
